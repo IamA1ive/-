@@ -1,10 +1,11 @@
 #include <iostream>
+#include <locale.h>
 using namespace std;
 
 void input(double** matrix, double** copy_matrix, int size1, int size2) {
 	int i, j;
 	for (i = 0; i < size1; i++) {
-		cout << "Введи элементы строки " << i + 1 << "\n";
+		cout << "Р’РІРµРґРё СЌР»РµРјРµРЅС‚С‹ СЃС‚СЂРѕРєРё " << i + 1 << "\n";
 		for (j = 0; j <= size2; j++) {
 			cin >> matrix[i][j];
 			copy_matrix[i][j] = matrix[i][j];
@@ -98,7 +99,7 @@ void test(double** copy_matrix, double* x, int col) {
 		sum += copy_matrix[0][i] * x[i];
 	}
 	if ((sum == copy_matrix[0][col]) || (abs(copy_matrix[0][col] - sum < 0.001))) {
-		cout << "Проверка пройдена успешно!" << endl;
+		cout << "РџСЂРѕРІРµСЂРєР° РїСЂРѕР№РґРµРЅР° СѓСЃРїРµС€РЅРѕ!" << endl;
 	}
 }
 
@@ -109,12 +110,12 @@ int main() {
 	double* x;
 	int row, col;
 
-	cout << "Введи количество строк ";
+	cout << "Р’РІРµРґРё РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂРѕРє ";
 	cin >> row;
-	cout << "Введи количество столбцов ";
+	cout << "Р’РІРµРґРё РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚РѕР»Р±С†РѕРІ ";
 	cin >> col;
 
-	//выделение памяти
+	//РІС‹РґРµР»РµРЅРёРµ РїР°РјСЏС‚Рё
 	matrix = new double* [row];
 	for (int i = 0; i < row; i++) {
 		matrix[i] = new double[col + 1];
@@ -139,7 +140,7 @@ int main() {
 
 
 
-	//освобождение памяти
+	//РѕСЃРІРѕР±РѕР¶РґРµРЅРёРµ РїР°РјСЏС‚Рё
 	for (int i = 0; i < row; i++) {
 		delete[] matrix[i];
 	}
